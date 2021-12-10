@@ -1,4 +1,5 @@
 import React from "react";
+import { Route } from "wouter";
 
 import "./App.css";
 
@@ -8,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <section className="App-section">
-        <GifsList keyword="mamamoo" />
+        <Route path="/gifs/:keyword" component={GifsList} />
       </section>
     </div>
   );
