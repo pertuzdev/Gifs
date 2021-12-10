@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+const GIFS = [
+  "https://media0.giphy.com/media/13CoXDiaCcCoyk/200.webp?cid=ecf05e475cd60sxo7o678zsvjyqttv3ng3svl41b673x3bve&rid=200.webp&ct=g",
+  "https://media1.giphy.com/media/3o6Zt481isNVuQI1l6/200w.webp?cid=ecf05e475cd60sxo7o678zsvjyqttv3ng3svl41b673x3bve&rid=200w.webp&ct=g",
+];
+
+const GIFS_PANDA = [
+  "https://media2.giphy.com/media/EPcvhM28ER9XW/200w.webp?cid=ecf05e479ddczleot1qlwu5t4jqlsdxmpvuhm7qq51yclwov&rid=200w.webp&ct=g",
+];
 
 function App() {
+  const [gifs, setGifs] = useState(GIFS);
+
+  useEffect(() => {
+    setGifs(GIFS_PANDA);
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className="App-section">
+        {gifs.map((gif) => (
+          <img key={gif} src={gif} alt="" />
+        ))}
+        <button onClick={() => setGifs(GIFS_PANDA)}>CAMBIAR A PANDAS</button>
+      </section>
     </div>
   );
 }
