@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
-import Gif from "./Gif";
+import Gif from "../Gif/Gif";
 
-import getGifs from "../service/getGifs";
+import getGifs from "../../service/getGifs";
 
 export default function GifsList({ params }) {
   const { keyword } = params;
