@@ -1,29 +1,21 @@
-import { useState, useEffect } from "react";
+import React from "react";
 
 import Gif from "../Gif/Gif";
 
-import getGifs from "../../service/getGifs";
+import { useGifs } from "../../hooks/useGifs";
+import Spinner from "../Spinner/Spinner";
 
-export default function GifsList({ params }) {
-  const { keyword } = params;
-  const [gifs, setGifs] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    getGifs({ keyword }).then((gifs) => {
-      setGifs(gifs);
-      setLoading(false);
-    });
-  }, [keyword]);
-
-  if (loading) return <div>Cargando</div>;
-
+export default function GifsList({ keyword = null } = { keyword: null }) {
+  const { gifs, loading } = useGifs({ keyword });
   return (
     <div>
-      {gifs.map(({ id, title, url }) => (
-        <Gif key={id} id={id} title={title} url={url} />
-      ))}
+      {loading ? (
+        <Spinner />
+      ) : (
+        gifs.map(({ id, title, url }) => (
+          <Gif key={id} id={id} title={title} url={url} />
+        ))
+      )}
     </div>
   );
 }

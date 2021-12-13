@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
+import GifsList from "../../components/GifsList/GifsList";
 
 const POPULAR_GIFS = ["Twice", "Blackpink", "Itzy", "Mamamoo", "Aespa"];
 
@@ -29,6 +30,7 @@ export default function Home() {
           Gifs de {popularGif}
         </Link>
       ))}
+      <GifsList />
     </>
   );
 }
