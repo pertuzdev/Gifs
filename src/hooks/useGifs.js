@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import getGifs from "../service/getGifs";
 
+import GifsContext from "../context/GifsContext";
+
 export function useGifs({ keyword }) {
-  const [gifs, setGifs] = useState([]);
+  const { gifs, setGifs } = useContext(GifsContext);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -21,7 +23,7 @@ export function useGifs({ keyword }) {
       setLoading(false);
       localStorage.setItem("lastSearch", keyword);
     });
-  }, [keyword]);
+  }, [keyword, setGifs]);
 
   return { gifs, loading };
 }

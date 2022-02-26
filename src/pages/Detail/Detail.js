@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import Gif from "../../components/Gif/Gif";
+
+import GifsContext from "../../context/GifsContext";
 
 export default function Detail({ params }) {
   const { id } = params;
+  const { gifs } = useContext(GifsContext);
 
-  const [loading, setLoading] = useState(false);
+  const gif = gifs.find((gif) => gif.id === id);
 
-  if (loading) return <div>Cargando</div>;
+  console.log(gif, "Grifindord");
 
-  return <h1>{id}</h1>;
+  return <Gif {...gif} />;
 }

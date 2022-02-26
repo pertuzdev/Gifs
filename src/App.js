@@ -2,6 +2,7 @@ import React from "react";
 import { Route } from "wouter";
 
 import "./App.css";
+import { GifsContextProvider } from "./context/GifsContext";
 
 import Detail from "./pages/Detail/Detail";
 import Home from "./pages/Home/Home";
@@ -11,9 +12,11 @@ function App() {
   return (
     <div className="App">
       <section className="App-section">
-        <Route path="/" component={Home} />
-        <Route path="/search/:keyword" component={SearchResults} />
-        <Route path="/gif/:id" component={Detail} />
+        <GifsContextProvider>
+          <Route path="/" component={Home} />
+          <Route path="/search/:keyword" component={SearchResults} />
+          <Route path="/gif/:id" component={Detail} />
+        </GifsContextProvider>
       </section>
     </div>
   );
