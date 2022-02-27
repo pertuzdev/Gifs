@@ -1,38 +1,42 @@
-.Category-title {
+.Trending-title {
   color: white;
   font-weight: bold;
   margin-left: 12px;
 }
 
-.Category-list {
+.Trending-list {
   list-style-position: inside;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
-.Category-link {
+.Trend-link {
   color: white;
   font-size: 1em;
   transition: color ease-in 0.1s;
 }
 
-.Category-link:hover {
+.Trend-link:hover {
   color: #8c55a2;
 }
 
+.Trending-list li {
+  margin-bottom: 6px;
+}
+
 @media screen and (min-width: 640px) {
-  .Category-list {
+  .Trending-list {
     flex-direction: column;
   }
 
-  .Category-list li::before {
+  .Trending-list li::before {
     color: #8c55a2;
     margin-right: 0.5em;
     font-size: 1em;
   }
 
-  .Category-title {
+  .Trending-title {
     margin-left: 0;
   }
 }

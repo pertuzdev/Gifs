@@ -1,7 +1,9 @@
-import Category from "components/Category";
 import { useState } from "react";
+
 import { Link, useLocation } from "wouter";
-import GifsList from "../../components/GifsList";
+
+import TrendingSearches from "components/TrendingSearches";
+import GifsList from "components/GifsList";
 
 const POPULAR_GIFS = ["Twice", "Blackpink", "Itzy", "Mamamoo", "Aespa"];
 
@@ -36,9 +38,8 @@ export default function Home() {
           <h3 className="App-title">Última búsqueda</h3>
           <GifsList />
         </div>
-        <div className="App-category">
-          <Category name="Categorias populares" options={POPULAR_GIFS} />
-          <Category name="Mascotas" options={["Perros", "Gatos", "Hamster"]} />
+        <div className="App-trending">
+          <TrendingSearches name="Trending" />
         </div>
       </div>
     </>

@@ -7,7 +7,7 @@ export default function SearchResults({ params }) {
 
   return (
     <>
-      <h3 className="App-title">{keyword}</h3>
+      <h3 className="App-title">{decodeURI(keyword)}</h3>
       <GifsList keyword={keyword} />
     </>
   );
