@@ -6,7 +6,7 @@ import getTrendingSearches from "services/getTrendingSearches";
 
 import "./styles.css";
 
-export default function TrendingSearches({ name, options = [], ...props }) {
+function TrendingSearches({ name, options = [], ...props }) {
   const [trending, setTrending] = useState([]);
 
   useEffect(() => {
@@ -27,4 +27,30 @@ export default function TrendingSearches({ name, options = [], ...props }) {
       </ul>
     </div>
   );
+}
+
+export default function LazyTrendingSearches(props) {
+  const [show, setShow] = useState(false);
+  const ref = useRef();
+
+  useEffect(() => {
+    const onChange = (entries, observer) => {
+      const el = entries[0];
+      console.log(el.isIntersecting);
+      if (el.isIntersecting) {
+        setShow(true);
+        observer.disconnect();
+      }
+    };
+
+    const observer = new IntersectionObserver(onChange, {
+      rootMargin: "100px",
+    });
+
+    observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  });
+
+  return <div ref={ref}>{show ? <TrendingSearches {...props} /> : null}</div>;
 }
