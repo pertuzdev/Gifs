@@ -1,5 +1,5 @@
-import { useState, useContext } from "react";
-import Gif from "../../components/Gif/Gif";
+import React from "react";
+import Gif from "../../components/Gif";
 
 import { useGlobalGifs } from "hooks/useGlobalGifs";
 
@@ -11,5 +11,10 @@ export default function Detail({ params }) {
 
   console.log(gif, "Grifindord");
 
-  return <Gif {...gif} />;
+  return (
+    <>
+      <h3>{gif.title}</h3>
+      <Gif {...gif} />;
+    </>
+  );
 }

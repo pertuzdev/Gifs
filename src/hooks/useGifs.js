@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 
-import getGifs from "../service/getGifs";
+import getGifs from "../services/getGifs";
 
 import GifsContext from "../context/GifsContext";
 
