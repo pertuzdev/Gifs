@@ -4,14 +4,13 @@ import { Link, useLocation } from "wouter";
 
 import TrendingSearches from "components/TrendingSearches";
 import GifsList from "components/GifsList";
-
-const POPULAR_GIFS = ["Twice", "Blackpink", "Itzy", "Mamamoo", "Aespa"];
+import { useGifs } from "hooks/useGifs";
 
 export default function Home() {
   const [searchWord, setSearchWord] = useState("");
   const [location, setLocation] = useLocation();
 
-  console.log(location, "location");
+  const { gifs, loading } = useGifs();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -36,7 +35,7 @@ export default function Home() {
       <div className="App-main">
         <div className="App-results">
           <h3 className="App-title">Última búsqueda</h3>
-          <GifsList />
+          <GifsList gifs={gifs} />
         </div>
         <div className="App-trending">
           <TrendingSearches name="Trending" />

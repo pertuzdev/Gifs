@@ -7,17 +7,12 @@ import Spinner from "../Spinner";
 
 import "./styles.css";
 
-export default function GifsList({ keyword = null } = { keyword: null }) {
-  const { gifs, loading } = useGifs({ keyword });
+export default function GifsList({ gifs }) {
   return (
     <div className="GifsList">
-      {loading ? (
-        <Spinner />
-      ) : (
-        gifs.map(({ id, title, url }) => (
-          <Gif key={id} id={id} title={title} url={url} />
-        ))
-      )}
+      {gifs.map(({ id, title, url }) => (
+        <Gif key={id} id={id} title={title} url={url} />
+      ))}
     </div>
   );
 }
