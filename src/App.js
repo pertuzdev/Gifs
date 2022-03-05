@@ -13,7 +13,7 @@ import logo from "assets/img/logo.png";
 function App() {
   return (
     <div className="App">
-      <section className="App-section">
+      <section className="App-content">
         <Link to="/">
           <figure className="App-logo">
             <img alt="Gifs Logo" src={logo} />

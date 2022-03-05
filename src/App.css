@@ -1,5 +1,5 @@
 .App {
-  /*text-align: center;*/
+  text-align: center;
 }
 
 .App-logo {
@@ -38,6 +38,7 @@
 
 .App-results {
   flex-shrink: 2;
+  width: 100%;
 }
 
 .App-trending {
@@ -50,11 +51,15 @@
     flex-direction: initial;
   }
 
+  .App-results {
+    width: 75%;
+  }
+
   .App-trending {
     padding: 0 2em;
     position: sticky;
     top: 0;
-    width: 40%;
+    width: 25%;
   }
 }
 
@@ -62,15 +67,4 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-section {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
