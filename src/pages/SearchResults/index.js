@@ -7,6 +7,7 @@ import { useNearScreen } from "hooks/useNearScreen";
 
 import GifsList from "../../components/GifsList";
 import Spinner from "components/Spinner";
+import { useSEO } from "hooks/useSEO";
 
 export default function SearchResults({ params }) {
   const { keyword } = params;
@@ -18,6 +19,10 @@ export default function SearchResults({ params }) {
     externalRef: !loading && viewFinderRef,
     once: false,
   });
+
+  const title = gifs ? `${gifs.length} resultados de ${keyword}` : "";
+
+  useSEO({ title });
 
   console.log(gifs[0], "gif");
 
