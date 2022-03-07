@@ -19,6 +19,8 @@ export default function SearchResults({ params }) {
     once: false,
   });
 
+  console.log(gifs[0], "gif");
+
   //const handleNextPage = () => setPage((prevPage) => prevPage + 1);
   const handleNextPage = useCallback(
     debounce(() => setPage((prevPage) => prevPage + 1), 1000),
