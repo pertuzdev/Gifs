@@ -21,14 +21,18 @@ export default function Home() {
 
   return (
     <>
-      <SearchForm onSubmit={onSubmit} />
-      <div className="App-main">
-        <div className="App-results">
-          <h3 className="App-title">Última búsqueda</h3>
-          <GifsList gifs={gifs} />
-        </div>
-        <div className="App-trending">
-          <TrendingSearches name="Trending" />
+      <header className="o-header">
+        <SearchForm onSubmit={onSubmit} />
+      </header>
+      <div className="App-wrapper">
+        <div className="App-main">
+          <div className="App-results">
+            <h3 className="App-title">Última búsqueda</h3>
+            <GifsList gifs={gifs} />
+          </div>
+          <div className="App-trending">
+            <TrendingSearches name="Trending" />
+          </div>
         </div>
       </div>
     </>

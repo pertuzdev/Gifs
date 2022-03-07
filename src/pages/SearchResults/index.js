@@ -36,9 +36,11 @@ export default function SearchResults({ params }) {
         <Spinner />
       ) : (
         <>
-          <h3 className="App-title">{decodeURI(keyword)}</h3>
-          <GifsList gifs={gifs} />
-          <div id="observer" ref={viewFinderRef}></div>
+          <div className="App-wrapper">
+            <h3 className="App-title">{decodeURI(keyword)}</h3>
+            <GifsList gifs={gifs} />
+            <div id="observer" ref={viewFinderRef}></div>
+          </div>
         </>
       )}
       {/* <button onClick={handleNextPage}>Next Page</button> */}

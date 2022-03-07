@@ -14,12 +14,13 @@
 }
 
 .App-title {
-  color: white;
+  color: var(--theme-body-txt);
+  margin-top: 0.6rem;
 }
 
 .App-content {
-  background-color: #121212;
-  color: white;
+  background-color: var(--theme-body-bg);
+  color: var(--theme-body-txt);
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
@@ -36,6 +37,13 @@
   align-items: flex-start;
 }
 
+.App-wrapper {
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0 0.5em;
+}
+
 .App-results {
   flex-shrink: 2;
   width: 100%;
@@ -46,25 +54,15 @@
   width: 100%;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 55rem) {
   .App-main {
     flex-direction: initial;
   }
 
-  .App-results {
-    width: 75%;
-  }
-
   .App-trending {
-    padding: 0 2em;
     position: sticky;
-    top: 0;
-    width: 25%;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    top: var(--search-size-mx-h);
+    width: 40%;
+    max-width: 300px;
   }
 }

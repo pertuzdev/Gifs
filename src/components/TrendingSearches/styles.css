@@ -1,33 +1,39 @@
 .Trending-title {
-  color: white;
+  color: var(--theme-body-txt);
   font-weight: bold;
-  margin-left: 12px;
+  margin-bottom: 0.7rem;
+  margin-top: 0.6rem;
 }
 
 .Trending-list {
   list-style-position: inside;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  padding: 0;
+  margin: 0;
+}
+
+.Trending-list-item {
+  list-style: none;
+  padding: 0.3rem;
+  margin: 0.2rem;
+  font-size: 1.2rem;
 }
 
 .Trend-link {
-  color: white;
+  color: inherit;
+  font-size: 1em;
+  text-decoration: none;
   font-size: 1em;
   transition: color ease-in 0.1s;
 }
 
-.Trend-link:hover {
-  color: #8c55a2;
-}
-
-.Trending-list li {
-  margin-bottom: 6px;
-}
-
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 55rem) {
+  .Trending-title {
+    text-align: right;
+  }
   .Trending-list {
-    flex-direction: column;
+    justify-content: flex-end;
   }
 
   .Trending-list li::before {
@@ -35,8 +41,25 @@
     margin-right: 0.5em;
     font-size: 1em;
   }
+}
 
-  .Trending-title {
-    margin-left: 0;
-  }
+.Trending-list-item:nth-child(5n + 1) {
+  background-color: var(--brand-color_1);
+  color: var(--theme-body-bg);
+}
+.Trending-list-item:nth-child(5n + 2) {
+  background-color: var(--brand-color_2);
+  color: var(--theme-body-bg);
+}
+.Trending-list-item:nth-child(5n + 3) {
+  background-color: var(--brand-color_3);
+  color: white;
+}
+.Trending-list-item:nth-child(5n + 4) {
+  background-color: var(--brand-color_4);
+  color: white;
+}
+.Trending-list-item:nth-child(5n + 5) {
+  background-color: var(--brand-color_5);
+  color: var(--theme-body-bg);
 }
