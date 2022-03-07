@@ -22,7 +22,7 @@ export default function SearchResults({ params }) {
   //const handleNextPage = () => setPage((prevPage) => prevPage + 1);
   const handleNextPage = useCallback(
     debounce(() => setPage((prevPage) => prevPage + 1), 1000),
-    []
+    [setPage]
   );
   useEffect(() => {
     if (isNearScreen) handleNextPage();

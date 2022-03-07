@@ -10,8 +10,8 @@ import "./styles.css";
 export default function GifsList({ gifs }) {
   return (
     <div className="GifsList">
-      {gifs.map(({ id, title, url }) => (
-        <Gif key={id} id={id} title={title} url={url} />
+      {gifs.map(({ id, title, url, ...restProps }) => (
+        <Gif key={id} id={id} title={title} url={url} restProps={restProps} />
       ))}
     </div>
   );
