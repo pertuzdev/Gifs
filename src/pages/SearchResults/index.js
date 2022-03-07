@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useRef } from "react";
 
+import { Helmet } from "react-helmet";
+
 import debounce from "just-debounce-it";
 
 import { useGifs } from "hooks/useGifs";
@@ -7,7 +9,6 @@ import { useNearScreen } from "hooks/useNearScreen";
 
 import GifsList from "../../components/GifsList";
 import Spinner from "components/Spinner";
-import { useSEO } from "hooks/useSEO";
 
 export default function SearchResults({ params }) {
   const { keyword } = params;
@@ -20,11 +21,9 @@ export default function SearchResults({ params }) {
     once: false,
   });
 
-  const title = gifs ? `${gifs.length} resultados de ${keyword}` : "";
+  const title = gifs ? `${gifs.length} results for ${keyword}` : "";
 
-  useSEO({ title });
-
-  console.log(gifs[0], "gif");
+  //console.log(gifs[0], "gif");
 
   //const handleNextPage = () => setPage((prevPage) => prevPage + 1);
   const handleNextPage = useCallback(
@@ -41,6 +40,11 @@ export default function SearchResults({ params }) {
         <Spinner />
       ) : (
         <>
+          <Helmet>
+            <title>{title}</title>
+            <meta name="description" content={title}></meta>
+            <meta name="rating" content="General" />
+          </Helmet>
           <div className="App-wrapper">
             <h3 className="App-title">{decodeURI(keyword)}</h3>
             <GifsList gifs={gifs} />

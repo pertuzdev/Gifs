@@ -1,5 +1,7 @@
 import { useLocation } from "wouter";
 
+import Helmet from "react-helmet";
+
 import { useGifs } from "hooks/useGifs";
 
 import TrendingSearches from "components/TrendingSearches";
@@ -21,6 +23,9 @@ export default function Home() {
 
   return (
     <>
+      <Helmet>
+        <title>Home | Gifs</title>
+      </Helmet>
       <header className="o-header">
         <SearchForm onSubmit={onSubmit} />
       </header>
