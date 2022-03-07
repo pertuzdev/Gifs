@@ -18,7 +18,10 @@ export function useSingleGif({ id }) {
           setGif(gif);
           setIsLoading(false);
         })
-        .catch((e) => setError(e));
+        .catch((e) => {
+          setError(e);
+          setIsLoading(false);
+        });
     }
   }, [id, gif]);
 
