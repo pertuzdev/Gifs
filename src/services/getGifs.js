@@ -1,9 +1,9 @@
 import { API_KEY, API_URL } from "./settings";
 
-const getGifs = ({ keyword, limit = 15, page = 0 }) => {
+const getGifs = ({ keyword, limit = 15, page = 0, rating = "g" }) => {
   const apiURL = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=${
     page * limit
-  }&rating=g&lang=en`;
+  }&rating=${rating}&lang=en`;
 
   return fetch(apiURL)
     .then((res) => res.json())

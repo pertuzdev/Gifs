@@ -1,5 +1,3 @@
-import { useLocation } from "wouter";
-
 import Helmet from "react-helmet";
 
 import { useGifs } from "hooks/useGifs";
@@ -7,19 +5,9 @@ import { useGifs } from "hooks/useGifs";
 import TrendingSearches from "components/TrendingSearches";
 import GifsList from "components/GifsList";
 import SearchForm from "components/SearchForm";
-import { useCallback } from "react";
 
 export default function Home() {
-  const [location, setLocation] = useLocation();
-
   const { gifs, loading } = useGifs();
-
-  const onSubmit = useCallback(
-    ({ searchWord }) => {
-      setLocation(`/search/${searchWord}`);
-    },
-    [setLocation]
-  );
 
   return (
     <>
@@ -27,7 +15,7 @@ export default function Home() {
         <title>Home | Gifs</title>
       </Helmet>
       <header className="o-header">
-        <SearchForm onSubmit={onSubmit} />
+        <SearchForm />
       </header>
       <div className="App-wrapper">
         <div className="App-main">
