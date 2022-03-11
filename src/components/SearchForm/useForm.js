@@ -18,7 +18,10 @@ const reducer = (state, actions) => {
   }
 };
 
-export default function useForm({ initialWord = "", initialRating = "g" }) {
+export default function useForm({
+  initialWord = "",
+  initialRating = "g",
+} = {}) {
   const [state, dispatch] = useReducer(reducer, {
     searchWord: initialWord,
     rating: initialRating,
